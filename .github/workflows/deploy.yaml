@@ -1,0 +1,26 @@
+name: Deploy NodeJS Application to Hostinger
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs: 
+  deploy:
+    runs-on: "ubuntu-latest"
+
+    steps: 
+      - name: Checout Code
+        uses: actions/checkout@v4
+
+      - name: Deploy Via SSH
+        uses: appleboy/ssh-actions@v1.0.3
+        with: 
+          host: ${{ secrets.SSH_HOST }}
+          username: trinx
+          key: ${{ secrets.SSH_KEY }}
+          scripts: 
+            cd /var/www/test-node.js-deploay
+            git pull 
+            docker compose up -d --build
+
