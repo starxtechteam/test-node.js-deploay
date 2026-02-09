@@ -22,5 +22,5 @@ jobs:
           script: | 
             cd /var/www/test-node.js-deploay
             git pull 
-            docker compose up -d --build
+            sudo docker compose up -d --build
 
