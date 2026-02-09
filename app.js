@@ -6,7 +6,8 @@ const PORT = process.env.PORT ?? 5000;
 
 app.get('/', (req, res) => {
     res.status(200).json({
-        msg: "Hello From Server PORT:5000"
+        success: true,
+        msg: "Hello From Server PORT"
     })
 });
 
